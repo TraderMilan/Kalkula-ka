@@ -7,6 +7,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        BasicCalculator basicCalculator = new BasicCalculator("");
+        AdvancedCalculator advancedCalculator = new AdvancedCalculator("");
         while (true) {
             System.out.println("Write number, then type operation (+, -, *, /) and number again");
             int type = 0;
@@ -24,15 +26,16 @@ public class Main {
                 continue;
             }
 
+            
 
             type = checkType(operation);
 
                 if (type == 1) {
-                    BasicCalculator basicCalculator = new BasicCalculator(val1, operation, val2);
-                    basicCalculator.result();
+                    basicCalculator.setOperator(operation);
+                    basicCalculator.result(val1,val2);
                 } else if (type == 2) {
-                    AdvancedCalculator advancedCalculator = new AdvancedCalculator(val1, operation, val2);
-                    advancedCalculator.result();
+                    advancedCalculator.setOperator(operation);
+                    advancedCalculator.result(val1, val2);
                 } else {
                     System.out.println("Hups, wrong operator, try again...");
                 }
